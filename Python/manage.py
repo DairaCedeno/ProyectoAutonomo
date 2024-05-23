@@ -1,7 +1,10 @@
-from app import app, db
-from flask_migrate import Migrate
+from flask import Flask
 
-migrate = Migrate(app, db)
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return '¡Hola, mundo!'
 
 if __name__ == '__main__':
     app.run()

@@ -17,24 +17,31 @@ class Empleado(db.Model):
             'telefono': self.telefono
         }
 
+# Define una clase Producto 
 class Producto(db.Model):
+    # Especifica el nombre de la tabla en la base de datos
     __tablename__ = 'productos'
-    id_producto = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(100))
-    descripcion = db.Column(db.Text)
-    precio = db.Column(db.Float)
-    stock = db.Column(db.Integer)
-    categoria = db.Column(db.String(100))
-
+    
+    # Define las columnas de la tabla 'productos' con sus respectivos tipos de datos y restricciones
+    id_producto = db.Column(db.Integer, primary_key=True)  
+    nombre = db.Column(db.String(100))  
+    descripcion = db.Column(db.Text) 
+    precio = db.Column(db.Float)  
+    stock = db.Column(db.Integer)  
+    categoria = db.Column(db.String(100))  
+    
+    # Método para convertir un objeto Producto en un diccionario
     def to_dict(self):
+        # Retorna un diccionario con los atributos del producto
         return {
-            'id_producto': self.id_producto,
-            'nombre': self.nombre,
-            'descripcion': self.descripcion,
-            'precio': self.precio,
-            'stock': self.stock,
-            'categoria': self.categoria
+            'id_producto': self.id_producto,  
+            'nombre': self.nombre,  
+            'descripcion': self.descripcion,  
+            'precio': self.precio,  
+            'stock': self.stock,  
+            'categoria': self.categoria 
         }
+
 
 class DetalleProducto(db.Model):
     __tablename__ = 'detalle_productos'
@@ -99,3 +106,11 @@ class Usuario(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+    
+
+    # Un diccionario en Python es una estructura de datos que 
+    # permite almacenar pares de "llaves" y "valores". 
+    # Cada "llave" en un diccionario debe ser única y está asociada 
+    # a un "valor". Los diccionarios son extremadamente flexibles 
+    # y útiles para organizar y manipular datos de forma eficiente.
+
